@@ -1,0 +1,8 @@
+
+TODO: Document your timezone operations:
+- What timezone was your original data in?
+- How did you localize the data?
+- What timezone did you convert to?
+- What issues did you encounter with DST? (Note: Using UTC avoids DST ambiguity)
+- Include at least one example showing a datetime before and after conversion
+- Explain why UTC is recommended as the base timezone for storing temporal data
