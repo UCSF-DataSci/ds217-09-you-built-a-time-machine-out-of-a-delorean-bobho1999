@@ -1,11 +1,45 @@
 
 TODO: Document your missing data handling:
 - How many missing values did you find?
+A: 323 missing values were found in the dataset.
 - What percentage of data was missing?
+A: The missing values made up around 96.4% of the dataset.
 - Which method did you use to fill missing values?
+A: To fill the missing values, we tried the following methods: forward fill, backward fill, interpolation, Linear interpolation, time-based interpolation, rolling mean imputation.
+Summary of missing value after applying each method: n(%)
+    Forward fill: 0(0.0%)
+    Backward fill: 0(0.0%)
+    Interpolation: 0(0.0%)
+    Linear interpolation: 0(0.0%)
+    Time-based interpolation: 0(0.0%)
+    Rolling mean imputation: 323(96.4%)
 - Why did you choose that method?
+A: From the summary above, we see how every method except the 'rolling mean imputation' successfully fill in all the missing values. 
+If I were to choose one method only, I would probably choose 'time-based interpolation' because time series often have irregular gaps,
+and time-based interpolation accounts for the actual time differences between points rather than assuming constant values between the 
+gap like forward filling.
 - What are the pros/cons of your approach?
+A: Some pros of time-based interpolation include handling uneven intervals accurately and preserving temporal trends.
+Some cons of the approach include requiring proper setup and potential poor performance with large gaps.
 - Include examples showing missing data patterns
+Before:
+date
+2023-01-31    98.777
+2023-02-01       NaN
+2023-02-02       NaN
+2023-02-03       NaN
+2023-02-04       NaN
+Freq: D, Name: temperature, dtype: float64
+
+After:
+date
+2023-01-31    98.777000
+2023-02-01    98.785011
+2023-02-02    98.793021
+2023-02-03    98.801031
+2023-02-04    98.809041
+Freq: D, Name: temperature, dtype: float64
+
 
 
 Missing patterns:
