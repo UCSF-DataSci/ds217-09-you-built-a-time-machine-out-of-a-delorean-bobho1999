@@ -1,8 +1,18 @@
 
 TODO: Document your timezone operations:
 - What timezone was your original data in?
+A: We cannot tell which timezone the orginal data was in since there was no codebook to check, and the date column only contains the year, month, and day information.
 - How did you localize the data?
+A: To localize the data, we use the commend 'tz_localize('UTC')' to set all dates to UTC time.
 - What timezone did you convert to?
+A: After we localized the dates, we then convert them into 'US/Eastern' timezone using the commend 'tz_convert('US/Eastern')'.
 - What issues did you encounter with DST? (Note: Using UTC avoids DST ambiguity)
+A: With daylight saving times, it is likely that we will encounter unwanted missing or duplicate data in the dataset. 
+In fall, when the cock shift back one hour, we will end up having 1:00 AM recorded twice (once in EDT and another in EST) in the dataset.
+In spring, when the clock shift forward one hour, an entire hour is skipped and thus create missing data in the dataset.
 - Include at least one example showing a datetime before and after conversion
+A: 
+    Before: Timestamp('2023-03-12 10:00:00+0000', tz='UTC')
+    After: Timestamp('2023-03-12 06:00:00-0400', tz='US/Eastern')
 - Explain why UTC is recommended as the base timezone for storing temporal data
+A: UTC is recommended as the base timezone for storing temporal data because it does not have daylight saving. Therefore, we can avoid encountering problem with DST.
